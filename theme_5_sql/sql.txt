@@ -1,0 +1,18 @@
+1-- Test
+SELECT firstName, lastName FROM persons; 
+
+
+2-- Test
+DELETE FROM persons
+WHERE TIMESTAMPDIFF(YEAR, dateOfBirth, CURDATE()) < 18;
+
+3-- Test
+SELECT
+    p.firstName AS ParentFirstName,
+    p.lastName AS ParentLastName,
+    c.firstName AS ChildFirstName,
+    c.lastName AS ChildLastName
+FROM
+    persons p
+LEFT JOIN
+    children c ON p.personID = c.parentID;
